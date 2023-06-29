@@ -2,7 +2,9 @@
 let AleatorioN = Math.floor(Math.random() * 100)+1
 
 //variaveis do resul
-let chances = document.querySelector('#chances')
+// let chances = document.querySelector('#chances')
+
+const chances = document.querySelector('#chances')
 const ultresultado = document.querySelector('#ultresultado')
 const altobaixo = document.querySelector('#altobaixo')
 
@@ -20,6 +22,7 @@ let resetjogo
 
 function play(){
   const jogada = Number(adcampo.value)
+
 
   if (contagem === 1 ){
     chances.textContent = `Jogadas Anteriores: `
@@ -44,8 +47,30 @@ function play(){
   } else if (jogada > AleatorioN){
     altobaixo.textContent =' Chute alto demais. '
     contagem++ 
+
+  if (contagem == 1 ){
+    chances.innerHTML = `Jogadas Anteriores: `
+  }
+
+  chances.textContent = `${jogada}`
+  
+  if (jogada == AleatorioN){
+    ultresultado.innerHTML = `Parabens, você acertou !!`
+    altobaixo.innerHTML = ``
+    ResetarJogo()
+  } else if (chances == 10) {
+    chances.innerHTML = `Game Over !!`
+    altobaixo.innerHTML = ''
+    ResetarJogo()
+  } else {
+    ultresultado.innerHTML -'Errado!'
+    if(jogada < AleatorioN){
+       altobaixo.innerHTML ="Chute baixo"
+  } else if (jogada > AleatorioN){
+    altobaixo.innerHTML =' Chute alto demais. '
   }
 }
+  }
 console.log(contagem)
        
       chances++
@@ -54,4 +79,4 @@ console.log(contagem)
     
     
 }
-
+}
