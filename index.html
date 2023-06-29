@@ -8,24 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <div class="conteiner">
     <div class="Titulo">
-    <h1>Acerte o Número !!</h1>
-    <p>Escolha um numero entre 1 à 100, e veja se você consegue acertar o Número, tendo 10 chances.</p>
+        <h1 >Acerte o Número</h1>
     </div>
-
-    <div class="form">
-        <label for="adcampo">Coloque um Número</label>
-        <input type="number" min="1" max="100" id="adcampo">
-        <input type="button" value="Confirmar" id="confirmo">
-    </div>
-
-    <div class="resul">
-        <p id="chances"></p>
-        <p id="ultresultado"></p>
-        <p id="altobaixo"></p>
-    </div>
-
+    <fieldset>
+         <p>Digite um numero entre 1 à 100, e veja se você consegue acertar o Número, tendo 10 chances.</p>
+        <div class="form">
+            <input type="number" min="1" max="100" id="adcampo" value="Digite um numero">
+            <input type="button" value="Confirmar" id="confirmo" onclick="play()">
+        </div>
+        
+        <div class="resul">
+            <p id="chances"></p>
+            <p id="ultresultado"></p>
+            <p id="altobaixo"></p>
+        </div>
+        </div>
+    </fieldset>
     <script src="js.js"></script>
 </body>
 </html>
