@@ -15,15 +15,17 @@
 
     <fieldset>
          <p>Digite um numero entre 1 à 100, e veja se você consegue acertar o Número, tendo 10 chances.</p>
+         <p class="tentativas">Tentativas:</p>
         <div class="form">
             <input type="number" min="1" max="100" id="adcampo" value="Digite um numero">
             <input type="button" value="Confirmar" id="confirmo" onclick="play()">
         </div>
         
         <div class="resul">
+            <p id="altobaixo"></p>
             <p id="chances"></p>
             <p id="ultresultado"></p>
-            <p id="altobaixo"></p>
+           
         </div>
         </div>
     </fieldset>
