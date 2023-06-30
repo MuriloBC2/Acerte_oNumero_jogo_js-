@@ -7,6 +7,7 @@ let AleatorioN = Math.floor(Math.random() * 100)+1
 const chances = document.querySelector('#chances')
 const ultresultado = document.querySelector('#ultresultado')
 const altobaixo = document.querySelector('#altobaixo')
+let tentativas = document.querySelector('#tentativas')
 
 //variaveis form
 const adcampo = document.querySelector('#adcampo')
@@ -21,62 +22,31 @@ let resetjogo
 
 
 function play(){
-  const jogada = Number(adcampo.value)
-
-
-  if (contagem === 1 ){
-    chances.textContent = `Jogadas Anteriores: `
-    
-  chances.textContent += jogada + ' '
+  const jogada = Number(adcampo.value);
+  if (contagem === 1) {
+    chances.textContent = `Jogadas Anteriores: `;
   }
-  if (jogada === AleatorioN){
-    ultresultado.textContent = `Parabens, você acertou !!`
-    ultresultado.style.backgroundcolor = 'green'
-    altobaixo.textContent = `Acertou `
-    ResetarJogo()
-  } else if (jogada != AleatorioN && contagem === 10) {
-    ultresultado.textContent = `Game Over !!`
-    altobaixo.textContent = 'Errado'
-    ResetarJogo()
-  } else {
-    ultresultado.textContent -'Errado!'
-    ultresultado.style.backgroundcolor = 'red'
-    if(jogada < AleatorioN){
-       altobaixo.textContent ="Chute baixo"
-       contagem++
-  } else if (jogada > AleatorioN){
-    altobaixo.textContent =' Chute alto demais. '
-    contagem++ 
-
-  if (contagem == 1 ){
-    chances.innerHTML = `Jogadas Anteriores: `
-  }
-
-  chances.textContent = `${jogada}`
-  
-  if (jogada == AleatorioN){
-    ultresultado.innerHTML = `Parabens, você acertou !!`
-    altobaixo.innerHTML = ``
-    ResetarJogo()
-  } else if (chances == 10) {
-    chances.innerHTML = `Game Over !!`
-    altobaixo.innerHTML = ''
-    ResetarJogo()
-  } else {
-    ultresultado.innerHTML -'Errado!'
-    if(jogada < AleatorioN){
-       altobaixo.innerHTML ="Chute baixo"
-  } else if (jogada > AleatorioN){
-    altobaixo.innerHTML =' Chute alto demais. '
-  }
-}
-  }
-console.log(contagem)
-       
-      chances++
-       adcampo.value = ''
-       adcampo.focus()
-    
-    
-}
+    if(jogada===AleatorioN){
+      ultresultado.textContent='Párabens você acertou'
+      chances.textContent =''
+      altobaixo.textContent =''
+    } else if(jogada!=AleatorioN && contagem===10 ){
+      chances.textContent += ` ${jogada}`
+      ultresultado.textContent='Errou'
+      altobaixo.textContent='Você gastou todas as chances'
+    } else {
+      if (jogada < AleatorioN){
+      chances.textContent += ` ${jogada}`
+      ultresultado.textContent="Errou"
+      altobaixo.textContent = 'Baixo'
+      contagem++
+      tentativas += `${contagem}`;
+    }else if (jogada > AleatorioN){
+      chances.textContent += ` ${jogada}`
+      ultresultado.textContent='Errou'
+      altobaixo.textContent = 'Alto'
+      contagem++
+      tentativas += `${contagem}`;
+    }}
+    adcampo.value=''
 }
